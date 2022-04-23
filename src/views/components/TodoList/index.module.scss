@@ -1,0 +1,111 @@
+.todo{
+    &__item{
+        position: relative;
+        padding: 17px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #DBE2EF;
+        border-radius: 5px;
+
+    }
+
+    &__input{
+        appearance: none;
+        position: absolute;
+        &:checked ~ .todo__hidden::after{
+          opacity: 1;
+           
+        }
+        &:checked ~ .todo__hidden{
+           background-color: #fff;
+           
+        }
+
+        
+       }
+
+   
+
+    &__label{
+        display: flex;
+        align-items: center;   
+        width: 100%;   
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        
+    }
+
+    &__hidden{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 0;
+        left: 0;
+        border: 1px solid #3F72AF;
+        border-radius: 5px;
+        z-index: 1;
+        transition: background .4s ease;
+        
+
+        &::after{
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            display: block;
+            background-image: url(../../../assets/check.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 2;
+            transition: opacity .4s ease;
+            opacity: 0;
+          
+        }
+    }    
+
+    &__compleat{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 2px;
+        width: 70%;
+        left:38px;
+        background-color: #fc1234;
+      }
+
+      &item__btns{
+          display: flex;
+          gap: 15px;
+      }
+
+      &item__btn{
+          width: 20px;
+          height: 20px;
+          
+          transition: opacity .4s ease;
+          &:hover{
+              opacity: 0.4;
+          }
+
+      }
+      &__title{
+          font-size: 1.2rem;
+          color: rgb(48, 43, 43);
+          line-height: 1.2;
+      }
+
+      &__isedit{
+          outline: none;
+          padding: 4px 15px;
+          border: none;
+          width: 100%;
+          background: transparent;
+
+       }
+}
